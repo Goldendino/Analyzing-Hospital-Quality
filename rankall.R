@@ -1,3 +1,10 @@
+## This R script creates a function called rankall that takes two arguments: an outcome name (outcome) and a hospital ranking (num). 
+## The function reads the associated hospital compare database file and returns a 2-column data frame
+## containing the hospital in each state that has the ranking specified in num. 
+
+# A Note on Optimization: Instead of subsetting the data first, I have left the subsetting to respective
+# if-blocks - Though the script is slightly longer, it runs significantly faster.
+
 rankall <- function(outcome, num = "best") {
         data <- read.csv("outcome-of-care-measures.csv")
         state_column <- character()

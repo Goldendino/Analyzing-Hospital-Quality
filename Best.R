@@ -1,3 +1,12 @@
+## This R script creates a function "best" with the capability to search the hospital compare database 
+## by state (e.g. Texas) and one of three outcomes (mortality rate of pneumonia, heart attack, 
+## or heart failure) - It returns the hospital in the specified state with the lowest mortality rate of
+## the specified outcome.
+
+# A Note on Optimization: Instead of subsetting the data first, I have left the subsetting to respective
+# if-blocks - Though the code is slightly longer, it runs significantly faster.
+
+
 best <- function(state, outcome) {
         data <- read.csv("outcome-of-care-measures.csv")
         if(!state %in% data$State) {stop("Invalid State")}
